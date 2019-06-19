@@ -1,3 +1,4 @@
+var numSquares = 6; 
 var colors = generateRandomColors(6);
 var squares = document.querySelectorAll('.square');
 var pickedColor = pickColor();
@@ -12,10 +13,11 @@ easyBtn.addEventListener("click", function(){
     //no need to add a '.' if using .classList()
     easyBtn.classList.add("selected") 
     hardBtn.classList.remove("selected")
-    colors = generateRandomColors(3);
+    numSquares = 3;
+    colors = generateRandomColors(numSquares);
     pickedColor = pickColor();
     colorDisplay.textContent = pickedColor;
-    for (i = 0; i < squares.length; i++){
+    for (var i = 0; i < squares.length; i++){
         if (colors[i]){
             squares[i].style.background = colors[i];
         } else{
@@ -27,15 +29,23 @@ easyBtn.addEventListener("click", function(){
 hardBtn.addEventListener("click", function(){
     hardBtn.classList.add("selected") 
     easyBtn.classList.remove("selected")
+    numSquares = 6;
+    colors = generateRandomColors(numSquares);
+    pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor;
+    for (var i = 0; i < squares.length; i++){
+        squares[i].style.background = colors[i];
+        squares[i].style.display = "block";
+    }
 })
 
 resetButton.addEventListener("click", function(){
     //  Change h1 back to the default background color
-    h1.style.backgroundColor = "#232323"
+    h1.style.backgroundColor = "steelblue"
     // Change 'Play Again' button back to 'New Colors' button
     resetButton.textContent = "New Colors"
     // Generate 6 new colors
-    colors = generateRandomColors(6);
+    colors = generateRandomColors(numSquares);
     // Pick a new color from color array
     pickedColor = pickColor();
     // Change color display to match pickedColor
