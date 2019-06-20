@@ -49,12 +49,13 @@ h1{
 }
 
 #display {
-    display: inline-block;
+    display: inline-block; 
     width: 20%;
 }
 
 .selected {
-    background-color: blue;
+    background-color: steelblue;
+    color: white;
 }
 
 button {
@@ -69,6 +70,7 @@ button {
     transition: all .5s;
     -webkit-transition: all .5s;
     -webkit-transition: all .5s;
+    outline: none;
 }
 
 button:hover{
